@@ -1,0 +1,260 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #ffffff;
+    overflow: hidden;
+}
+/* Header (Navbar) */
+header { 
+    position: fixed;
+    top: 0; 
+    width: 100%; z-index: 1000; 
+    background: rgba(0, 0, 0, 0.5); /* Set background to be transparent with opacity */ 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 10%; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo-container img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+.logo-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+nav {
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: 0.3s;
+    background: linear-gradient(45deg, #4a06e7, #ff2e63);
+    background-size: 200% auto;
+    font-weight: bold;
+}
+nav a:hover {
+    background-position: right center;
+    color: #121212;
+    box-shadow: 0 4px 15px rgba(43, 224, 6, 0.5);
+}
+main {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+        overflow-y: scroll;
+}
+section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Align items horizontally */
+    color: #ffffff;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+.bg {
+    position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        filter:brightness(50%);
+        z-index: -1;
+        transition: opacity 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        opacity: 0; /* Initially invisible */
+        animation: zoomInOut 15s infinite; /* Apply zoom effect */
+}
+section.active .bg {
+    opacity: 1; /* Make the active section's background visible */
+}
+/* Zoom In and Out Animation */
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+        background-position: center;
+    }
+    50% {
+        transform: scale(1.1); /* Zoom in */
+        background-position: center;
+    }
+    100% {
+        transform: scale(1);
+        background-position: center;
+    }
+}
+/* Specific Background Images */
+#home .bg {
+background-image: url('/Assets/KA1.Jpeg');
+}
+#about .bg {
+    background-image: url('/Assets/KA2.Jpg');
+}
+    #locate .bg {
+        background-image: url('/Assets/KA3.Jpg');
+    }
+    #contact .bg {
+        background-image: url('/Assets/CU1.Jpeg');
+    }
+    h2 {
+        font-size: 58px;
+        background: linear-gradient(90deg, #2809da, #ff2e63);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px; /* Space between heading and paragraph */
+        text-align: center;
+    }
+
+        p {
+            font-size: 28px;
+            max-width: 600px;
+            color: #eeeeee;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px; /* Space after paragraph */
+        }
+
+        .logo-container img {
+            width: 80px;
+            height: 50px; /* Set the desired height here */
+            border-radius: 10px;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background: linear-gradient(45deg, #0714d1, #ff2e63);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-position: right center;
+            box-shadow: 0 4px 15px rgba(4, 7, 221, 0.5);
+        }
+
+        /* Border Box for Welcome Section */
+        #home .content-box {
+            border: 5px solid #e80ef0;
+            padding: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Order Now Button - Fixed at Bottom Right */
+        .order-now-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff8c00, #ff2e63);
+            color: #fff;
+            font-size: 18px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.5);
+            transition: 0.3s;
+        }
+
+        .order-now-btn:hover {
+            background-position: right center;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.7);
+        }
+
+        /* Media Queries for Mobile and Small Screens */
+  /* Media query for mobile view */
+/* Media Queries for Mobile and Small Screens */
+@media (max-width: 768px) {
+    /* Adjust background images to fit perfectly */
+    .bg {
+        background-size: contain; /* Fit image to the page */
+        background-position: center;
+    }
+
+    /* Adjust navigation size */
+    nav {
+        flex-direction: column;
+        gap: 10px; /* Reduce gap between navigation items */
+    }
+
+    nav a {
+        font-size: 14px; /* Smaller font size for navigation links */
+        padding: 8px 12px; /* Adjust padding for navigation links */
+    }
+
+    header {
+        padding: 10px 5%; /* Adjust padding for header */
+    }
+
+    .logo-container img {
+        width: 50px; /* Smaller logo size */
+        height: auto;
+    }
+
+    .logo-container h1 {
+        font-size: 18px; /* Smaller font size for logo text */
+    }
+
+    /* Adjust background images to fit perfectly without repetition */
+    section .bg {
+        background-size: cover; /* Ensure the image covers the entire section */
+        background-repeat: no-repeat; /* Prevent image repetition */
+        background-position: center;
+    }
+
+    /* Remove navigation bar */
+    header nav {
+        display: none; /* Hide the navigation bar */
+    }
+
+    /* Reduce size of Order Now Button */
+    .order-now-btn {
+        padding: 10px 15px; /* Reduce padding */
+        font-size: 16px; /* Smaller font size */
+    }
+
+    /* Reduce size of headings */
+    h2 {
+        font-size: 40px; /* Smaller font size for headings */
+    }
+
+    /* Reduce size of paragraph text */
+    p {
+        font-size: 18px; /* Smaller font size for paragraphs */
+        max-width: 400px; /* Adjust width of the paragraph */
+    }
+}
